@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Color palette – Venti:3 / Turquoise */
+  --bg: #F4FBFA;
+  --panel: #FFFFFF;
+
+
+
+
+  --primary: #4FB6A6;
+  --primary-soft: #D7EEEA;
+  --secondary: #9FD6CE;
+
+
+
+
+  --border: #BFE2DB;
+
+
+
+
+  --text: #2F3E3B;
+  --muted: #6B8F88;
+
+
+
+
+  --accent: #4FB6A6;
+}
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", "Helvetica Neue", "Nunito", Arial, sans-serif;
+  color: var(--text);
+
+
+
+
+  background-color: var(--bg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+
+
+
+  /* 20% opacity reduction + slight softening */
+  background: rgba(244, 251, 250, 0.75);
+
+
+
+
+  backdrop-filter: blur(2px);       /* VERY subtle blur */
+  -webkit-backdrop-filter: blur(2px); /* Safari support */
+
+
+
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+
+
+
+
+
+
+.custom-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+
+.custom-link:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* ───────── Container ───────── */
+.container {
+  max-width: 760px;
+  margin: 24px auto;
+  background: var(--panel);
+  border-radius: 14px;
+  border: 2px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(79,182,166,0.15);
+}
+
+
+
+
+/* ───────── Header ───────── */
+.header {
+  padding: 12px 16px;
+  font-size: 14px;
+  background: repeating-linear-gradient(
+    90deg,
+    #D7EEEA,
+    #D7EEEA 14px,
+    #F4FBFA 14px,
+    #F4FBFA 28px
+  );
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+
+
+
+/* ───────── Profile ───────── */
+.profile-top {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  gap: 20px;
+  padding: 20px;
+  background-image: url('https://static.wikia.nocookie.net/gensin-impact/images/e/ec/Namecard_Background_Venti_Azure_Sky.png/revision/latest?cb=20210330005404');
+  background-size: cover;       /* Makes the image cover the entire div */
+  background-position: center;  /* Centers the image */
+  background-repeat: no-repeat; /* Prevents tiling */
+}
+
+
+
+
+.profile-top::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+
+
+
+  /* Diagonal fade: top-left → bottom-right */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.8) 0%,   /* top-left (20% visible image) */
+    rgba(255, 255, 255, 0.6) 100% /* bottom-right (40% visible image) */
+  );
+
+
+
+
+  z-index: 0;
+}
+
+
+
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #9FD6CE, #4FB6A6);
+  flex-shrink: 0;
+  border: 4px solid #9ee3d7;
+  box-shadow: 0 4px 12px rgba(79, 182, 166, 0.3);
+}
+
+
+
+
+.profile-info h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+
+
+
+.alias {
+  font-size: 16px;
+  color: var(--muted);
+  position: relative;
+  top: 2px;
+}
+
+
+
+
+.tagline {
+  margin-top: 3px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+
+
+
+.address {
+  font-size: 8px;
+  color: var(--muted);
+}
+
+
+/* ───────── Media / Contact ───────── */
+.media {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  margin-top: 8px;
+}
+
+
+
+
+.media div {
+  background: var(--primary-soft);
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 8px;
+  text-align: center;
+  color: var(--text);
+}
+
+
+
+
+#border {
+  border: 2px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* ───────── Tabs ───────── */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--border);
+}
+
+
+
+
+.buttons button {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #E6F5F2;
+  padding: 6px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--text);
+  transition: all 0.2s ease;
+}
+
+
+
+
+.buttons button:hover {
+  transform: translateY(-1px);
+}
+
+
+
+
+.buttons button.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+
+
+
+/* ───────── Content ───────── */
+.content {
+  padding: 14px;
+  padding-top: 0;
+  overflow: hidden; /* Needed for height transitions */
+  transition: height 0.4s ease;
+}
+
+
+
+
+.tab {
+  display: none;
+}
+
+
+
+
+.tab.active {
+  display: block;
+}
+
+
+
+
+/* ───────── Sections ───────── */
+.section {
+  margin-bottom: 20px;
+}
+
+
+
+
+.section h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+
+
+
+.section p {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+
+
+
+.section ul {
+  margin: 6px 0 0;
+  padding-left: 20px;
+}
+
+
+
+
+.section li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+
+
+/* ───────── Banner / Footer ───────── */
+.banner {
+  background: #EAF6F4;
+  text-align: center;
+  padding: 10px;
+  font-weight: 600;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+
+
+
+.footer {
+  background: #EAF6F4;
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+
+
+
+/* ───────── Decorative placeholders ───────── */
+.stat img,
+.chibi {
+  background: linear-gradient(135deg, #9FD6CE, #4FB6A6);
+  border-radius: 12px;
+}
+
+
+
+
+.icon {
+    position: absolute;
+    top: 10px;
+    right: -260px;
+    filter: drop-shadow(0 6px 16px rgba(0, 72, 48, 0.55));
+}
+
+
+
+
+/* ───────── Responsive ───────── */
+@media (max-width: 640px) {
+  .profile-top {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+
+
+
+  .media {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+@media (orientation: portrait) {
+  body {
+    background-image: url("https://static.wikia.nocookie.net/gensin-impact/images/c/ca/DRS_Venti_Vertical.png/revision/latest?cb=20240317055237");
+  }
+  .age {
+  font-size: 8px;
+  color: var(--muted);
+  }
+}
+
+
+
+
+@media (orientation: landscape) {
+  body {
+    background-image: url("https://static.wikia.nocookie.net/gensin-impact/images/6/65/DRS_Venti_Horizontal.png/revision/latest/scale-to-width-down/1000?cb=20240316053613");
+  }
+  .age {
+  font-size: 8px;
+  color: var(--muted);
+  position: relative;
+  bottom: 8px;
+  left: 12px;
+}
+}
+
+
+
+
+
+
+
+
+/* ───────── Entrance Animation ───────── */
+@keyframes fadeSlideUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+.animate-on-load {
+  opacity: 0;
+  animation: fadeSlideUp 0.8s forwards;
+}
+
+
+
+
+/* Apply staged animation delays */
+.profile-top > *,
+.media > div,
+.section,
+.buttons button {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 0.8s forwards;
+}
+
+
+
+
+.profile-top > * { animation-delay: 0.2s; }
+.media > div:nth-child(1) { animation-delay: 0.3s; }
+.media > div:nth-child(2) { animation-delay: 0.4s; }
+.media > div:nth-child(3) { animation-delay: 0.5s; }
+.media > div:nth-child(4) { animation-delay: 0.6s; }
+
+
+
+
+.section:nth-child(1) { animation-delay: 0.7s; }
+.section:nth-child(2) { animation-delay: 0.8s; }
+.section:nth-child(3) { animation-delay: 0.9s; }
+.buttons button:nth-child(1) { animation-delay: 0.9s; }
+.buttons button:nth-child(2) { animation-delay: 1s; }
+.buttons button:nth-child(3) { animation-delay: 1.1s; }
+</style>
+</head>
+
+
+
+
+<body>
+<div class="container">
+
+
+
+
+  <div class="header">
+    <span>Personal Curriculum Vitae</span>
+    <span>♡</span>
+  </div>
+
+
+
+
+  <div class="profile-top">
+    <div class="avatar">
+        <img src="https://raw.githubusercontent.com/mellyv/CV-Purposes/refs/heads/main/IMG_20260205_182647.jpg" alt="Avatar" style="width: 100%; height: 100%; border-radius: 50%;">
+        <span class="age"><strong>🎂 June 14, 2010</strong></span>
+    </div>
+    <div class="profile-info">
+      <h1>John Melritch V. Tuazon<span class="alias">@faromity</span></h1>
+      <div class="tagline">
+        html programmer  ·  pianist  · genshin addict  ·  chronically online
+      </div>
+      <div class="media">
+        <div id="border">📧 <a href="mailto:faromity@gmail.com" class="custom-link">faromity@gmail.com</a></div>
+        <div id="border">🌐 <a href="https://github.com/faromity" class="custom-link" target="_blank">github.io</a></div>
+        <div id="border">💬 <a href="https://www.facebook.com/melritch.tuazon.1" class="custom-link" target="_blank">Melritch Tuazon (FB)</a></div>
+        <div id="border">📞 +63 (0)969 616 9481</a></div>
+      </div>
+      <span class="address">📍 Address: Block 14 Lot 49 Villa Del Rio, Babag II, Lapu-Lapu City, Cebu, Philippines</span>
+    </div>
+      <div class="icon">
+      <img src="https://static.wikia.nocookie.net/gensin-impact/images/1/12/Icon_Emoji_Paimon%27s_Paintings_22_Venti_1.png/revision/latest?cb=20230310044055" alt="Decorative Top Image" style="width: 20%; height: auto;">
+      </div>
+  </div>
+  <!-- Tabs -->
+  <div class="buttons">
+    <button class="active" onclick="showTab('info')">Professional Info !</button>
+    <button onclick="showTab('lovies')">Lovies >:3 !</button>
+    <button onclick="showTab('byf')">Stuff >:3 !</button>
+  </div>
+
+
+
+
+  <div class="content">
+
+
+
+
+    <!-- INFO TAB -->
+    <div class="tab active" id="info">
+      <div class="section">
+        <h3>About Me</h3>
+        <p>
+          I’m a Grade 9 student in SACS interested in music, <a href="https://akasha.cv/profile/888664809" class="custom-link" target="_blank">Genshin Impact(Venti)</a>, tech-related stuff, photography, graphic/web design, and online communities.
+        </p>
+      </div>
+
+
+
+
+      <div class="section">
+        <h3>Skills</h3>
+        <ul>
+          <li>HTML & CSS (basic–intermediate)</li>
+          <li>Piano</li>
+          <li>Photography</li>
+          <li>Web Design</li>
+        </ul>
+      </div>
+
+
+
+
+      <div class="section">
+        <h3>Education</h3>
+        <ul>
+          <li>Kindergarten in <a href="https://maps.app.goo.gl/mZphwm3NEaTTi96r8" class="custom-link" target="_blank">Sonshine Kids International School</a></li>
+          <li>Elementary to High School (Grade 9) in <a href="https://maps.app.goo.gl/5KvqHxZMQiiRwWY56" class="custom-link" target="_blank">St. Alphonsus Catholic School</a></li>
+          <li>Humble student of <strong>Sir Salas</strong> who taught me web & design basics</li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+    <!-- LOVIES TAB -->
+    <div class="tab" id="lovies">
+      <div class="section">
+        <h3>Interests</h3>
+        <ul>
+          <li>Web aesthetics & profiles</li>
+          <li>Genshin Impact</li>
+          <li><strong><a href="https://genshin-impact.fandom.com/wiki/Venti" class="custom-link" target="_blank">Venti</a></strong></li>
+          <li>Music</li>
+          <li>Rain, sleeping, cats :3</li>
+          <li>Rubik's Cubing</li>
+
+
+
+
+        </ul>
+      </div>
+
+
+
+
+      <div class="section">
+        <h3>Favorite Media</h3>
+        <ul>
+          <li><a href="https://genshin.hoyoverse.com/en/" class="custom-link" target="_blank">Games</a> / <a href="https://www.crunchyroll.com/series/G63V7KN9Y/your-lie-in-april?srsltid=AfmBOoqydeYbcWUnVmpA57eWUMNe0V01GloD5L1XVLXgstm2LFWsLLG5" class="custom-link" target="_blank">Movies</a> I enjoy</li>
+          <li><a href="https://open.spotify.com/artist/7gW0r5CkdEUMm42w9XpyZO" class="custom-link" target="_blank">Artists & creators</a></li>
+          <li><a href="https://genshin-impact.fandom.com/wiki/Venti" class="custom-link" target="_blank">Comfort characters</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+    <!-- BYF / DNI TAB -->
+    <div class="tab" id="byf">
+        <div class="section">
+          <h3>Before You Interact</h3>
+            <ul>
+              <li>I joke casually & ironically</li>
+              <li>I love Venti</li>
+              <li>I use ":3"</li>
+              <li>I value boundaries</li>
+            </ul>
+        </div>
+
+
+
+
+        <div class="section">
+          <h3>Do Not Interact</h3>
+            <ul>
+              <li>Harassment / boundary crossing</li>
+              <li>Sexual or inappropriate behavior</li>
+              <li>Hate speech or bigotry</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+  </div>
+  <div class="footer">
+    <strong>
+    thank you for reading ♡ >w<<br>
+    </strong>
+<small>
+<a href="https://www.hoyoverse.com/en-us/" class="custom-link" target="_blank">© HoYoverse / COGNOSPHERE. All rights reserved.</a>
+Genshin Impact artwork used for non-commercial, educational purposes.
+</small>
+    </span>
+  </div>
+</div>
+
+
+
+
+<script>
+function showTab(id) {
+  const tabs = document.querySelectorAll(".tab");
+  const buttons = document.querySelectorAll(".buttons button");
+  const content = document.querySelector(".content");
+
+
+
+
+  const activeTab = document.getElementById(id);
+
+
+
+
+  // If the tab is already active, do nothing
+  if (activeTab.classList.contains("active")) return;
+
+
+
+
+  // Remove active from others
+  tabs.forEach(t => t.classList.remove("active"));
+  buttons.forEach(b => b.classList.remove("active"));
+
+
+
+
+  // Activate the clicked tab and its button
+  activeTab.classList.add("active");
+  event.target.classList.add("active");
+
+
+
+
+  // Animate content height smoothly
+  const newHeight = activeTab.scrollHeight;
+  content.style.height = newHeight + "px";
+}
+
+
+
+
+// Set initial height on page load
+window.addEventListener("DOMContentLoaded", () => {
+  const activeTab = document.querySelector(".tab.active");
+  const content = document.querySelector(".content");
+  content.style.height = activeTab.scrollHeight + "px";
+});
+</script>
+</body>
+</html>
+
